@@ -94,8 +94,8 @@ class Game {
     }
 
     movePlayer() {
-        let futureX = this.ball.x + this.ball.velocity.horizontal;
-        let futureY = this.ball.y + this.ball.velocity.vertical;
+        let futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+        let futureY = this.ball.y + this.ball.velocity.vertical / 2;
         //can move inside canvas
         if (canvasDrawers.canMoveX(futureX) && canvasDrawers.canMoveY(futureY)) {
             this.ball.x = futureX;
