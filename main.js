@@ -5,7 +5,7 @@ let loggger = document.getElementById("logger");
 let currentXTilt = 0;
 let currentYTilt = 0;
 
-let popUPtab = document.querySelector('.victoryTab')
+let popUPtab = document.querySelector('.popUpTab')
 let title = document.querySelector('.title');
 let personalTime = document.querySelector('.yourTime');
 const restartGame = document.querySelector('.restart');
@@ -138,12 +138,12 @@ class Game {
     }
 
     checkGameOverCondidtions() {
-        let mazeX = Math.round((this.ball.x + (this.ball.velocity.horizontal)) / 50);
-        let mazeY = Math.round((this.ball.y + (this.ball.velocity.vertical)) / 50);
-        console.log('your cords ' + mazeX + ' , ' + mazeY)
+        let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
+        let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
+        //console.log('your cords ' + mazeX + ' , ' + mazeY)
         //console.log(mazeY)
 
-        if (maze[mazeY - 1][mazeX - 1] === 1) {
+        if (maze[mazeY][mazeX] === 1) {
             clearInterval(this.gameLoop);
             popUPtab.style.display = "block"
             title.innerHTML = "Game Over!";
@@ -193,7 +193,7 @@ const game = new Game();
 // let currentXTilt = 0;
 // let currentYTilt = 0;
 
-// let popUPtab = document.querySelector('.victoryTab')
+// let popUPtab = document.querySelector('.popUpTab')
 // let title = document.querySelector('.title');
 // let personalTime = document.querySelector('.yourTime');
 // const restartGame = document.querySelector('.restart');
