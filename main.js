@@ -138,12 +138,12 @@ class Game {
     }
 
     checkGameOverCondidtions() {
-        let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
-        let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
-        //console.log(mazeX)
+        let mazeX = Math.round((this.ball.x + (this.ball.velocity.horizontal)) / 50);
+        let mazeY = Math.round((this.ball.y + (this.ball.velocity.vertical)) / 50);
+        console.log('your cords ' + mazeX + ' , ' + mazeY)
         //console.log(mazeY)
 
-        if (maze[mazeX][mazeY] == 1) {
+        if (maze[mazeY - 1][mazeX - 1] === 1) {
             clearInterval(this.gameLoop);
             popUPtab.style.display = "block"
             title.innerHTML = "Game Over!";

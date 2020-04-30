@@ -40,10 +40,10 @@ function drawers() {
     }
 
     function canMoveX(x) {
-        return x >= half && x <= boardWidth - half;
+        return x >= half / 2 && x <= boardWidth - half / 2;
     }
     function canMoveY(y) {
-        return y >= half && y <= boardHeight - half;
+        return y >= half / 2 && y <= boardHeight - half / 2;
     }
 
     function isOverlapping(obj1, obj2) {
