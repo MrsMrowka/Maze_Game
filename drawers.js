@@ -12,7 +12,7 @@ function drawers() {
 
     function drawPlayer(x, y) {
         ctx.beginPath();
-        ctx.arc(x, y, half, 0, 2 * Math.PI);
+        ctx.arc(x, y, half / 2, 0, 2 * Math.PI);
         ctx.fillStyle = "purple";
         ctx.fill();
         ctx.closePath();
