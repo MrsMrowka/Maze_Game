@@ -137,7 +137,7 @@ class Game {
         let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
         let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
         //console.log(mazeX)
-        console.log(mazeY)
+        //console.log(mazeY)
 
         if (maze[mazeX][mazeY] == 1) {
             clearInterval(this.gameLoop);
