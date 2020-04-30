@@ -94,8 +94,8 @@ class Game {
     }
 
     movePlayer() {
-        let futureX = this.ball.x + this.ball.velocity.horizontal / 2;
-        let futureY = this.ball.y + this.ball.velocity.vertical / 2;
+        let futureX = this.ball.x + this.ball.velocity.horizontal / 4;
+        let futureY = this.ball.y + this.ball.velocity.vertical / 4;
         //can move inside canvas
         if (canvasDrawers.canMoveX(futureX) && canvasDrawers.canMoveY(futureY)) {
             this.ball.x = futureX;
@@ -134,8 +134,8 @@ class Game {
     }
 
     checkGameOverCondidtions() {
-        let mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / 50);
-        let mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / 50);
+        let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
+        let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
         //console.log(mazeX)
         console.log(mazeY)
 
