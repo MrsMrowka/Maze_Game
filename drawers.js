@@ -1,8 +1,8 @@
 function drawers() {
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
-    let boardWidth = canvas.width = 600;
-    let boardHeight = canvas.height = 600;
+    let boardWidth = canvas.width = 500;
+    let boardHeight = canvas.height = 800;
     let objectSize = boardHeight / 15;
     let half = objectSize / 2;
 
