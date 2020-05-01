@@ -1,7 +1,6 @@
 const canvasDrawers = drawers();
 const randUnits = units();
 
-let loggger = document.getElementById("logger");
 let currentXTilt = 0;
 let currentYTilt = 0;
 
@@ -27,7 +26,6 @@ function handleOrientationChange(e) {
         y = -90;
     }
     if (y !== null && x !== null) {
-        loggger.innerHTML = "Y = " + y.toFixed(2) + " " + "X = " + x.toFixed(2);
         currentXTilt = x;
         currentYTilt = y;
     }
@@ -114,7 +112,6 @@ class Game {
             this.ball.velocity.vertical = 0;
             this.ball.velocity.horizontal = 0;
         }
-        //can move inside maze
     }
     overlapsKey() {
         if (canvasDrawers.isOverlapping(this.ball, this.key)) {
@@ -148,16 +145,10 @@ class Game {
             popUPtab.style.display = "block"
             title.innerHTML = "Game Over!";
         }
-
-        //if (canvasDrawers.isOverlapping(this.ball, this.trapHole1))
-        // clearInterval(this.gameLoop);
-        // popUPtab.style.display = "block"
-        // title.innerHTML = "Game Over!";
-
     }
 
     writeTime() {
-        const endTime = new Date(this.startTime).getTime() + 400 * 1000;
+        const endTime = new Date(this.startTime).getTime() + 200 * 1000;
         const now = new Date().getTime();
         if (endTime - now > 0) {
             document.getElementById("showTimer").innerHTML =
