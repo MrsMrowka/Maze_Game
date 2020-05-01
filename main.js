@@ -116,7 +116,7 @@ class Game {
     overlapsKey() {
         if (canvasDrawers.isOverlapping(this.ball, this.key)) {
             this.keyObtained = true;
-            document.getElementById("showHint").innerHTML = "You got the key";
+            document.getElementById("showHint").innerHTML = "Head towards the exit";
         }
     }
 
@@ -148,7 +148,7 @@ class Game {
     }
 
     writeTime() {
-        const endTime = new Date(this.startTime).getTime() + 200 * 1000;
+        const endTime = new Date(this.startTime).getTime() + 1 * 1000;
         const now = new Date().getTime();
         if (endTime - now > 0) {
             document.getElementById("showTimer").innerHTML =
