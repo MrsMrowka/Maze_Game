@@ -148,7 +148,7 @@ class Game {
     }
 
     writeTime() {
-        const endTime = new Date(this.startTime).getTime() + 1 * 1000;
+        const endTime = new Date(this.startTime).getTime() + 200 * 1000;
         const now = new Date().getTime();
         if (endTime - now > 0) {
             document.getElementById("showTimer").innerHTML =
