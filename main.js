@@ -103,20 +103,20 @@ class Game {
         // let futureY = this.ball.y + this.ball.velocity.vertical / 4;
 
         //controlls ball velocity
-        if (this.ball.velocity.horizontal > -10 && this.ball.velocity.horizontal < 10) {
+        if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 3;
-        } else if (this.ball.velocity.horizontal > -15 && this.ball.velocity.horizontal < 15) {
-            futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+        } else if (this.ball.velocity.horizontal < -18 && this.ball.velocity.horizontal > 18) {
+            futureX = this.ball.x + this.ball.velocity.horizontal;
         } else {
-            futureX = this.ball.x + this.ball.velocity.horizontal / 1.4;
+            futureX = this.ball.x + this.ball.velocity.horizontal / 2;
         }
 
         if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
             futureY = this.ball.y + this.ball.velocity.vertical / 3;
-        } else if (this.ball.velocity.vertical > -15 && this.ball.velocity.vertical < 15) {
-            futureX = this.ball.x + this.ball.velocity.vertical / 2;
+        } else if (this.ball.velocity.vertical < -18 && this.ball.velocity.vertical > 18) {
+            futureY = this.ball.y + this.ball.velocity.vertical;
         } else {
-            futureX = this.ball.x + this.ball.velocity.vertical / 1.4;
+            futureY = this.ball.y + this.ball.velocity.vertical / 2;
         }
 
         //can move inside canvas
