@@ -102,16 +102,17 @@ class Game {
         // let futureX = this.ball.x + this.ball.velocity.horizontal / 4;
         // let futureY = this.ball.y + this.ball.velocity.vertical / 4;
 
+        //controlls ball velocity
         if (this.ball.velocity.horizontal > -10 && this.ball.velocity.horizontal < 10) {
-            futureX = this.ball.x + this.ball.velocity.horizontal / 3;
-        } else {
             futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+        } else {
+            futureX = this.ball.x + this.ball.velocity.horizontal;
         }
 
         if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
-            futureY = this.ball.y + this.ball.velocity.vertical / 3;
-        } else {
             futureY = this.ball.y + this.ball.velocity.vertical / 2;
+        } else {
+            futureY = this.ball.y + this.ball.velocity.vertical;
         }
 
         //can move inside canvas
@@ -151,6 +152,7 @@ class Game {
     }
 
     checkGameOverCondidtions() {
+        //chceck if not in wall
         let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
         let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
         if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
