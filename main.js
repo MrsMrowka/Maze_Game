@@ -104,15 +104,15 @@ class Game {
 
         //controlls ball velocity
         if (this.ball.velocity.horizontal > -10 && this.ball.velocity.horizontal < 10) {
-            futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+            futureX = this.ball.x + this.ball.velocity.horizontal / 3;
         } else {
-            futureX = this.ball.x + this.ball.velocity.horizontal;
+            futureX = this.ball.x + this.ball.velocity.horizontal / 2;
         }
 
         if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
-            futureY = this.ball.y + this.ball.velocity.vertical / 2;
+            futureY = this.ball.y + this.ball.velocity.vertical / 3;
         } else {
-            futureY = this.ball.y + this.ball.velocity.vertical;
+            futureY = this.ball.y + this.ball.velocity.vertical / 2;
         }
 
         //can move inside canvas
