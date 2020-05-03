@@ -104,19 +104,19 @@ class Game {
 
         //controlls ball velocity
         if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
-            futureX = this.ball.x + this.ball.velocity.horizontal / 3;
+            futureX = this.ball.x + this.ball.velocity.horizontal / 4;
         } else if (this.ball.velocity.horizontal < -18 && this.ball.velocity.horizontal > 18) {
-            futureX = this.ball.x + this.ball.velocity.horizontal;
-        } else {
             futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+        } else {
+            futureX = this.ball.x + this.ball.velocity.horizontal / 3;
         }
 
         if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
-            futureY = this.ball.y + this.ball.velocity.vertical / 3;
+            futureY = this.ball.y + this.ball.velocity.vertical / 4;
         } else if (this.ball.velocity.vertical < -18 && this.ball.velocity.vertical > 18) {
-            futureY = this.ball.y + this.ball.velocity.vertical;
-        } else {
             futureY = this.ball.y + this.ball.velocity.vertical / 2;
+        } else {
+            futureY = this.ball.y + this.ball.velocity.vertical / 3;
         }
 
         //can move inside canvas
