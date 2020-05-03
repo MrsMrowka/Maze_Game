@@ -97,8 +97,23 @@ class Game {
     }
 
     movePlayer() {
-        let futureX = this.ball.x + this.ball.velocity.horizontal / 4;
-        let futureY = this.ball.y + this.ball.velocity.vertical / 4;
+        let futureX = 0;
+        let futureY = 0;
+        // let futureX = this.ball.x + this.ball.velocity.horizontal / 4;
+        // let futureY = this.ball.y + this.ball.velocity.vertical / 4;
+
+        if (this.ball.velocity.horizontal > -10 && this.ball.velocity.horizontal < 10) {
+            futureX = this.ball.x + this.ball.velocity.horizontal / 3;
+        } else {
+            futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+        }
+
+        if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
+            futureY = this.ball.y + this.ball.velocity.vertical / 3;
+        } else {
+            futureY = this.ball.y + this.ball.velocity.vertical / 2;
+        }
+
         //can move inside canvas
         if (canvasDrawers.canMoveX(futureX) && canvasDrawers.canMoveY(futureY)) {
             this.ball.x = futureX;
