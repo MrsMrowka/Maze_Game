@@ -11,7 +11,8 @@ const restartGame = document.querySelector('.restart');
 
 restartGame.onclick = () => {
     popUPtab.style.display = "none"
-    document.location.reload();
+    // document.location.reload();
+    const game = new Game();
 }
 
 window.addEventListener("deviceorientation", handleOrientationChange, true);
@@ -137,6 +138,12 @@ class Game {
     checkGameOverCondidtions() {
         let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
         let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
+        if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
+            mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / 50);
+        }
+        if (this.ball.velocity.vertical > -8 && this.ball.velocity.vertical < 8) {
+            mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / 50);
+        }
         //console.log('your cords ' + mazeX + ' , ' + mazeY)
         //console.log(mazeY)
 
@@ -161,6 +168,7 @@ class Game {
     }
 
     render() {
+        //console.log(this.ball.velocity)
         canvasDrawers.clearBoard();
         this.writeTime();
         this.calculateBallVelocity();
