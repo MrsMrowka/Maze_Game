@@ -103,17 +103,17 @@ class Game {
         // let futureY = this.ball.y + this.ball.velocity.vertical / 4;
 
         //controlls ball velocity
-        if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
+        if (this.ball.velocity.horizontal > -12 && this.ball.velocity.horizontal < 12) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 4;
-        } else if (this.ball.velocity.horizontal < -18 && this.ball.velocity.horizontal > 18) {
+        } else if (this.ball.velocity.horizontal < -20 && this.ball.velocity.horizontal > 20) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 2;
         } else {
             futureX = this.ball.x + this.ball.velocity.horizontal / 3;
         }
 
-        if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
+        if (this.ball.velocity.vertical > -12 && this.ball.velocity.vertical < 12) {
             futureY = this.ball.y + this.ball.velocity.vertical / 4;
-        } else if (this.ball.velocity.vertical < -18 && this.ball.velocity.vertical > 18) {
+        } else if (this.ball.velocity.vertical < -20 && this.ball.velocity.vertical > 20) {
             futureY = this.ball.y + this.ball.velocity.vertical / 2;
         } else {
             futureY = this.ball.y + this.ball.velocity.vertical / 3;
