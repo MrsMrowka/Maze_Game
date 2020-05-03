@@ -105,14 +105,18 @@ class Game {
         //controlls ball velocity
         if (this.ball.velocity.horizontal > -10 && this.ball.velocity.horizontal < 10) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 3;
-        } else {
+        } else if (this.ball.velocity.horizontal > -15 && this.ball.velocity.horizontal < 15) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 2;
+        } else {
+            futureX = this.ball.x + this.ball.velocity.horizontal / 1.4;
         }
 
         if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
             futureY = this.ball.y + this.ball.velocity.vertical / 3;
+        } else if (this.ball.velocity.vertical > -15 && this.ball.velocity.vertical < 15) {
+            futureX = this.ball.x + this.ball.velocity.vertical / 2;
         } else {
-            futureY = this.ball.y + this.ball.velocity.vertical / 2;
+            futureX = this.ball.x + this.ball.velocity.vertical / 1.4;
         }
 
         //can move inside canvas
@@ -185,7 +189,7 @@ class Game {
     }
 
     render() {
-        //console.log(this.ball.velocity)
+        console.log(this.ball.velocity)
         canvasDrawers.clearBoard();
         this.writeTime();
         this.calculateBallVelocity();
