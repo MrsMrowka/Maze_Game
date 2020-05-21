@@ -1,5 +1,7 @@
 const canvasDrawers = drawers();
+const handleMaze = maze();
 const randUnits = units();
+
 
 let currentXTilt = 0;
 let currentYTilt = 0;
@@ -32,25 +34,6 @@ function handleOrientationChange(e) {
     }
 }
 
-let maze = [
-    [0, 0, 1, 1, 0, 0, 0, 1, 1, 1],
-    [0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-    [1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [1, 0, 1, 0, 0, 0, 1, 1, 1, 0],
-    [0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-    [0, 1, 1, 1, 1, 0, 0, 0, 1, 1],
-    [0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-    [1, 1, 0, 1, 0, 0, 1, 1, 1, 0],
-    [1, 0, 0, 1, 0, 1, 1, 0, 0, 0],
-    [1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
-    [0, 0, 0, 0, 0, 1, 1, 1, 1, 0],
-    [1, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-    [1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
-    [1, 0, 0, 0, 0, 1, 0, 0, 0, 0]
-]
-
 class GameObject {
     constructor(name, x = 0, y = 0) {
         this.name = name;
@@ -70,23 +53,80 @@ class Game {
     constructor() {
         this.startTime = new Date().getTime();
         this.keyObtained = false;
-        this.ball = new Ball(canvasDrawers.boardWidth / 2, canvasDrawers.boardHeight / 2);
-        this.key = new GameObject(
-            "Key", 50, 50
-        );
-        this.hole = new GameObject(
-            "Hole", 450, 750
-        );
+        switch (handleMaze.pathRand) {
+            case 1:
+                this.randGameObjPosition(250, 400, 50, 50, 450, 750);
+                break;
+            case 2:
+                this.randGameObjPosition(300, 100, 50, 550, 350, 650)
+                break;
+            case 3:
+                this.randGameObjPosition(50, 50, 300, 350, 150, 600)
+                break;
+            case 4:
+                this.randGameObjPosition(50, 750, 400, 500, 250, 100)
+                break;
+        }
         this.gameLoop = setInterval(() => this.render(), 100);
     }
 
-    drawMaze() {
-        for (let i = 0; i < maze.length; i++) {
-            for (let j = 0; j < maze[i].length; j++) {
-                if (maze[i][j] == 1) {
-                    canvasDrawers.drawWall(j * 50, i * 50);
-                }
-            }
+    randGameObjPosition(ballX, ballY, keyX, keyY, holeX, holeY) {
+        switch (Math.floor(Math.random() * 6) + 1) {
+            case 1:
+                this.ball = new Ball(ballX, ballY);
+                this.key = new GameObject(
+                    "Key", keyX, keyY
+                );
+                this.hole = new GameObject(
+                    "Hole", holeX, holeY
+                );
+                break;
+            case 2:
+                this.ball = new Ball(ballX, ballY);
+                this.key = new GameObject(
+                    "Key", holeX, holeY
+                );
+                this.hole = new GameObject(
+                    "Hole", keyX, keyY
+                );
+                break;
+            case 3:
+                this.ball = new Ball(keyX, keyY);
+                this.key = new GameObject(
+                    "Key", ballX, ballY
+                );
+                this.hole = new GameObject(
+                    "Hole", holeX, holeY
+                );
+                break;
+            case 4:
+                this.ball = new Ball(holeX, holeY);
+                this.key = new GameObject(
+                    "Key", ballX, ballY
+                );
+                this.hole = new GameObject(
+                    "Hole", keyX, keyY
+                );
+                break;
+            case 5:
+                this.ball = new Ball(keyX, keyY);
+                this.key = new GameObject(
+                    "Key", holeX, holeY
+                );
+                this.hole = new GameObject(
+                    "Hole", ballX, ballY
+                );
+                break;
+            case 6:
+                this.ball = new Ball(holeX, holeY);
+                this.key = new GameObject(
+                    "Key", keyX, keyY
+                );
+                this.hole = new GameObject(
+                    "Hole", ballX, ballY
+                );
+                break;
+
         }
     }
 
@@ -198,7 +238,7 @@ class Game {
         canvasDrawers.drawPlayer(this.ball.x, this.ball.y);
         if (!this.keyObtained) canvasDrawers.drawKey(this.key.x, this.key.y);
         canvasDrawers.drawHole(this.hole.x, this.hole.y, this.keyObtained);
-        this.drawMaze();
+        handleMaze.drawMaze();
         this.checkVictoryCondidtions();
         this.checkGameOverCondidtions();
     }
