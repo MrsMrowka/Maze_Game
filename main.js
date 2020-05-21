@@ -1,7 +1,6 @@
 const canvasDrawers = drawers();
-const handleMaze = maze();
+const handleMaze = createMaze();
 const randUnits = units();
-
 
 let currentXTilt = 0;
 let currentYTilt = 0;
@@ -206,9 +205,8 @@ class Game {
             mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / 50);
         }
         //console.log('your cords ' + mazeX + ' , ' + mazeY)
-        //console.log(mazeY)
 
-        if (maze[mazeY][mazeX] === 1) {
+        if (handleMaze.maze[mazeY][mazeX] === 1) {
             clearInterval(this.gameLoop);
             popUPtab.style.display = "block"
             title.innerHTML = "Game Over!";
@@ -229,7 +227,6 @@ class Game {
     }
 
     render() {
-        console.log(this.ball.velocity)
         canvasDrawers.clearBoard();
         this.writeTime();
         this.calculateBallVelocity();

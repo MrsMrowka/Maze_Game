@@ -138,6 +138,7 @@ function createMaze() {
     }
 
     return {
+        maze,
         pathRand,
         drawMaze
     };
