@@ -147,7 +147,7 @@ class Game {
         // let futureY = this.ball.y + this.ball.velocity.vertical / 4;
 
         //controlls ball velocity
-        if (this.ball.velocity.horizontal > -12 && this.ball.velocity.horizontal < 12) {
+        if (this.ball.velocity.horizontal > -10 && this.ball.velocity.horizontal < 10) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 4;
         } else if (this.ball.velocity.horizontal < -20 && this.ball.velocity.horizontal > 20) {
             futureX = this.ball.x + this.ball.velocity.horizontal / 2;
@@ -155,7 +155,7 @@ class Game {
             futureX = this.ball.x + this.ball.velocity.horizontal / 3;
         }
 
-        if (this.ball.velocity.vertical > -12 && this.ball.velocity.vertical < 12) {
+        if (this.ball.velocity.vertical > -10 && this.ball.velocity.vertical < 10) {
             futureY = this.ball.y + this.ball.velocity.vertical / 4;
         } else if (this.ball.velocity.vertical < -20 && this.ball.velocity.vertical > 20) {
             futureY = this.ball.y + this.ball.velocity.vertical / 2;
@@ -206,15 +206,9 @@ class Game {
         if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
             mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / canvasDrawers.objectSize);
         }
-        else if (this.ball.velocity.horizontal < -18 && this.ball.velocity.horizontal > 18) {
-            mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal / 4)) / canvasDrawers.objectSize);
-        }
 
         if (this.ball.velocity.vertical > -8 && this.ball.velocity.vertical < 8) {
             mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / canvasDrawers.objectSize);
-        }
-        if (this.ball.velocity.vertical < -18 - 20 && this.ball.velocity.vertical > 18) {
-            mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical / 4)) / canvasDrawers.objectSize);
         }
 
         //console.log('your cords ' + mazeX + ' , ' + mazeY)
