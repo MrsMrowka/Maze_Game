@@ -1,6 +1,6 @@
 const canvasDrawers = drawers();
-const handleMaze = createMaze();
 const randUnits = units();
+let handleMaze = createMaze();
 
 let currentXTilt = 0;
 let currentYTilt = 0;
@@ -12,15 +12,17 @@ const restartGame = document.querySelector('.restart');
 
 restartGame.onclick = () => {
     popUPtab.style.display = "none"
-    // document.location.reload();
+
+    //document.location.reload();
+    handleMaze = createMaze();
     const game = new Game();
 }
 
 window.addEventListener("deviceorientation", handleOrientationChange, true);
 
 function handleOrientationChange(e) {
-    let y = e.beta; // In degree in the range [-180,180] Front Back
-    let x = e.gamma; // In degree in the range [-90,90] Left Right
+    let y = e.beta; // in degree in the range [-180,180] Front Back
+    let x = e.gamma; // in degree in the range [-90,90] Left Right
     if (y > 90) {
         y = 90;
     }
