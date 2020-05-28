@@ -9,12 +9,22 @@ function drawers() {
         boardHeight = canvas.height = 800;
         objectSize = 50;
     }
-
-    if (window.innerWidth < 500) {
-        boardWidth = canvas.width = 300;
-        boardHeight = canvas.height = 480;
-        objectSize = 30;
+    else if (window.innerWidth < 350) {
+        boardWidth = canvas.width = 250;
+        boardHeight = canvas.height = 400;
+        objectSize = 25;
     }
+    else if (window.innerWidth < 450) {
+        boardWidth = canvas.width = 350;
+        boardHeight = canvas.height = 560;
+        objectSize = 35;
+    }
+    else if (window.innerWidth < 500) {
+        boardWidth = canvas.width = 450;
+        boardHeight = canvas.height = 720;
+        objectSize = 45;
+    }
+
     let half = objectSize / 2;
 
     function clearBoard() {

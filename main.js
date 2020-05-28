@@ -6,14 +6,17 @@ let currentXTilt = 0;
 let currentYTilt = 0;
 
 let popUPtab = document.querySelector('.popUpTab')
+let hint = document.querySelector("#showHint")
 let title = document.querySelector('.title');
 let personalTime = document.querySelector('.yourTime');
 const restartGame = document.querySelector('.restart');
 
 restartGame.onclick = () => {
-    popUPtab.style.display = "none"
+    popUPtab.style.display = "none";
+    personalTime.innerHTML = "";
 
     //document.location.reload();
+    hint.innerHTML = "Hint: get the key";
     handleMaze = createMaze();
     const game = new Game();
 }
@@ -178,7 +181,7 @@ class Game {
     overlapsKey() {
         if (canvasDrawers.isOverlapping(this.ball, this.key)) {
             this.keyObtained = true;
-            document.getElementById("showHint").innerHTML = "Head towards the exit";
+            hint.innerHTML = "Head towards the exit";
         }
     }
 
