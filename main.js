@@ -207,14 +207,14 @@ class Game {
             mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / canvasDrawers.objectSize);
         }
         else if (this.ball.velocity.horizontal < -18 && this.ball.velocity.horizontal > 18) {
-            mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal / 2)) / canvasDrawers.objectSize);
+            mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal / 4)) / canvasDrawers.objectSize);
         }
 
         if (this.ball.velocity.vertical > -8 && this.ball.velocity.vertical < 8) {
             mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / canvasDrawers.objectSize);
         }
         if (this.ball.velocity.vertical < -18 - 20 && this.ball.velocity.vertical > 18) {
-            mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical / 2)) / canvasDrawers.objectSize);
+            mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical / 4)) / canvasDrawers.objectSize);
         }
 
         //console.log('your cords ' + mazeX + ' , ' + mazeY)
