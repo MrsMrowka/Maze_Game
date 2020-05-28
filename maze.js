@@ -98,7 +98,9 @@ function createMaze() {
     ]
 
     // loop to randomly assign playable path
-    let pathRand = Math.floor(Math.random() * 4) + 1;
+    // let pathRand = Math.floor(Math.random() * 4) + 1;
+    let pathRand = 1;
+
     for (let i = 0; i < maze.length; i++) {
         for (let j = 0; j < maze[i].length; j++) {
             switch (pathRand) {
@@ -131,7 +133,7 @@ function createMaze() {
         for (let i = 0; i < maze.length; i++) {
             for (let j = 0; j < maze[i].length; j++) {
                 if (maze[i][j] == 1) {
-                    canvasDrawers.drawWall(j * 50, i * 50);
+                    canvasDrawers.drawWall(j * canvasDrawers.objectSize, i * canvasDrawers.objectSize);
                 }
             }
         }

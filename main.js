@@ -56,16 +56,16 @@ class Game {
         this.keyObtained = false;
         switch (handleMaze.pathRand) {
             case 1:
-                this.randGameObjPosition(250, 400, 50, 50, 450, 750);
+                this.randGameObjPosition(5 * canvasDrawers.objectSize, 8 * canvasDrawers.objectSize, canvasDrawers.objectSize, canvasDrawers.objectSize, 9 * canvasDrawers.objectSize, 15 * canvasDrawers.objectSize);
                 break;
             case 2:
-                this.randGameObjPosition(300, 100, 50, 550, 350, 650)
+                this.randGameObjPosition(6 * canvasDrawers.objectSize, 2 * canvasDrawers.objectSize, canvasDrawers.objectSize, 11 * canvasDrawers.objectSize, 7 * canvasDrawers.objectSize, 13 * canvasDrawers.objectSize)
                 break;
             case 3:
-                this.randGameObjPosition(50, 50, 300, 350, 150, 600)
+                this.randGameObjPosition(canvasDrawers.objectSize, canvasDrawers.objectSize, 6 * canvasDrawers.objectSize, 7 * canvasDrawers.objectSize, 3 * canvasDrawers.objectSize, 12 * canvasDrawers.objectSize)
                 break;
             case 4:
-                this.randGameObjPosition(50, 750, 400, 500, 250, 100)
+                this.randGameObjPosition(canvasDrawers.objectSize, 15 * canvasDrawers.objectSize, 8 * canvasDrawers.objectSize, 10 * canvasDrawers.objectSize, 5 * canvasDrawers.objectSize, 2 * canvasDrawers.objectSize)
                 break;
         }
         this.gameLoop = setInterval(() => this.render(), 100);
@@ -198,13 +198,13 @@ class Game {
 
     checkGameOverCondidtions() {
         //chceck if not in wall
-        let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / 50);
-        let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / 50);
+        let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / canvasDrawers.objectSize);
+        let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / canvasDrawers.objectSize);
         if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
-            mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / 50);
+            mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / canvasDrawers.objectSize);
         }
         if (this.ball.velocity.vertical > -8 && this.ball.velocity.vertical < 8) {
-            mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / 50);
+            mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / canvasDrawers.objectSize);
         }
         //console.log('your cords ' + mazeX + ' , ' + mazeY)
 

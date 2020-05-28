@@ -1,9 +1,20 @@
 function drawers() {
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
-    let boardWidth = canvas.width = 500;
-    let boardHeight = canvas.height = 800;
-    let objectSize = boardHeight / 15;
+    let boardWidth;
+    let boardHeight;
+    let objectSize;
+    if (window.innerWidth > 500) {
+        boardWidth = canvas.width = 500;
+        boardHeight = canvas.height = 800;
+        objectSize = 50;
+    }
+
+    if (window.innerWidth < 500) {
+        boardWidth = canvas.width = 300;
+        boardHeight = canvas.height = 480;
+        objectSize = 30;
+    }
     let half = objectSize / 2;
 
     function clearBoard() {
@@ -29,7 +40,7 @@ function drawers() {
     function drawWall(x, y) {
         ctx.beginPath();
         ctx.fillStyle = "black";
-        ctx.fillRect(x, y, 50, 50);
+        ctx.fillRect(x, y, objectSize, objectSize);
         ctx.fill();
         ctx.closePath();
     }
