@@ -203,12 +203,7 @@ class Game {
         //chceck if not in wall
         let mazeX = Math.floor((this.ball.x + (this.ball.velocity.horizontal)) / canvasDrawers.objectSize);
         let mazeY = Math.floor((this.ball.y + (this.ball.velocity.vertical)) / canvasDrawers.objectSize);
-        if (this.ball.velocity.horizontal > -8 && this.ball.velocity.horizontal < 8) {
-            mazeX = Math.floor((this.ball.x + (canvasDrawers.half / 10 * this.ball.velocity.horizontal)) / canvasDrawers.objectSize);
-        }
-        if (this.ball.velocity.vertical > -8 && this.ball.velocity.vertical < 8) {
-            mazeY = Math.floor((this.ball.y + (canvasDrawers.half / 10 * this.ball.velocity.vertical)) / canvasDrawers.objectSize);
-        }
+
         //console.log('your cords ' + mazeX + ' , ' + mazeY)
 
         if (handleMaze.maze[mazeY][mazeX] === 1) {
