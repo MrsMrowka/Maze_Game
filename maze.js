@@ -98,8 +98,7 @@ function createMaze() {
     ]
 
     // loop to randomly assign playable path
-    // let pathRand = Math.floor(Math.random() * 4) + 1;
-    let pathRand = 1;
+    let pathRand = Math.floor(Math.random() * 4) + 1;
 
     for (let i = 0; i < maze.length; i++) {
         for (let j = 0; j < maze[i].length; j++) {
